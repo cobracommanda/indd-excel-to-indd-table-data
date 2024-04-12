@@ -1,4 +1,3 @@
-
 var targetScriptLabel = "planner";
 
 // Function to create a unique key for each cell
@@ -37,7 +36,6 @@ function toJSONString(obj) {
     return '{' + json + '}'; 
 }
 
-// Check if there are any documents open
 if (app.documents.length > 0) {
     var myDocument = app.activeDocument;
     var cellsArray = []; // Array to hold detailed objects for each cell
@@ -62,21 +60,22 @@ if (app.documents.length > 0) {
                         for (var cellIndex = 0; cellIndex < myRow.cells.length; cellIndex++) {
                             var myCell = myRow.cells.item(cellIndex);
                             var paragraphStyles = [];
+                            var paragraphContents = [];
 
-                            // Collect all paragraph styles from each paragraph in the cell
+                            // Collect all paragraph styles and contents from each paragraph in the cell
                             for (var p = 0; p < myCell.paragraphs.length; p++) {
-                                paragraphStyles.push(myCell.paragraphs[p].appliedParagraphStyle.name);
+                                var paragraph = myCell.paragraphs[p];
+                                paragraphStyles.push(paragraph.appliedParagraphStyle.name);
+                                paragraphContents.push(paragraph.contents);
                             }
 
                             // Create a detailed object for each cell
                             var cellObject = {
                                 rowSpan: myCell.rowSpan,
                                 colSpan: myCell.columnSpan,
-                                paragraphStyles: paragraphStyles
+                                paragraphStyles: paragraphStyles,
+                                paragraphContents: paragraphContents // Storing paragraph contents
                             };
-
-                            // Add standardized content key dynamically
-                            cellObject['data_content_' + cellCounter] = myCell.contents;
 
                             // Add the cell object to the array
                             cellsArray.push(cellObject);
