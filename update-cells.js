@@ -56,38 +56,48 @@ function updateMultipleParagraphs(document, updates) {
   if (app.documents.length > 0) {
     var myDocument = app.activeDocument;
     var updates = [
-      {
-        rowSpan: 1,
-        colSpan: 1,
-        paragraphStyles: ["•Table_Hd"],
-        paragraphContents: [
-          { content: "Grease 1", path: "Table0Row0Cell1Paragraph0" },
-        ],
-      },
-      {
-        rowSpan: 1,
-        colSpan: 1,
-        paragraphStyles: ["•Table_Hd"],
-        paragraphContents: [
-          { content: "Grease 2", path: "Table0Row0Cell2Paragraph0" },
-        ],
-      },
-      {
-        rowSpan: 1,
-        colSpan: 1,
-        paragraphStyles: ["•Table_Hd"],
-        paragraphContents: [
-          { content: "Grease 3", path: "Table0Row0Cell3Paragraph0" },
-        ],
-      },
-      {
-        rowSpan: 1,
-        colSpan: 1,
-        paragraphStyles: ["•Table_Hd"],
-        paragraphContents: [
-          { content: "Grease 4", path: "Table0Row0Cell4Paragraph0" },
-        ],
-      },
+      
+
+        {
+            rowSpan: 1,
+            colSpan: 1,
+            paragraphStyles: ["•Table_Hd"],
+            paragraphContents: [
+              { content: "BBQ 1", path: "Table0Row0Cell1Paragraph0" },
+            ],
+          },
+          {
+            rowSpan: 1,
+            colSpan: 1,
+            paragraphStyles: ["•Table_Hd"],
+            paragraphContents: [
+              { content: "BBQ 2", path: "Table0Row0Cell2Paragraph0" },
+            ],
+          },
+          {
+            rowSpan: 1,
+            colSpan: 1,
+            paragraphStyles: ["•Table_Hd"],
+            paragraphContents: [
+              { content: "BBQ 3", path: "Table0Row0Cell3Paragraph0" },
+            ],
+          },
+          {
+            rowSpan: 1,
+            colSpan: 1,
+            paragraphStyles: ["•Table_Hd"],
+            paragraphContents: [
+              { content: "BBQ 4", path: "Table0Row0Cell4Paragraph0" },
+            ],
+          },
+          {
+            rowSpan: 1,
+            colSpan: 1,
+            paragraphStyles: ["•Table_Hd"],
+            paragraphContents: [
+              { content: "BBQ 5", path: "Table0Row0Cell5Paragraph0" },
+            ],
+          }
     ];
   
     var result = updateMultipleParagraphs(myDocument, updates);
