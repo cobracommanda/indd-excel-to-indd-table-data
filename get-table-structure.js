@@ -1,3 +1,5 @@
+
+
 var targetScriptLabel = "planner";
 
 // Function to create a unique key for each cell
@@ -60,13 +62,17 @@ if (app.documents.length > 0) {
                         for (var cellIndex = 0; cellIndex < myRow.cells.length; cellIndex++) {
                             var myCell = myRow.cells.item(cellIndex);
                             var paragraphStyles = [];
-                            var paragraphContents = [];
+                            var paragraphDetails = [];
 
                             // Collect all paragraph styles and contents from each paragraph in the cell
                             for (var p = 0; p < myCell.paragraphs.length; p++) {
                                 var paragraph = myCell.paragraphs[p];
                                 paragraphStyles.push(paragraph.appliedParagraphStyle.name);
-                                paragraphContents.push(paragraph.contents);
+                                var path = 'Table' + tableIndex + 'Row' + rowIndex + 'Cell' + cellIndex + 'Paragraph' + p;
+                                paragraphDetails.push({
+                                    content: paragraph.contents,
+                                    path: path
+                                });
                             }
 
                             // Create a detailed object for each cell
@@ -74,7 +80,7 @@ if (app.documents.length > 0) {
                                 rowSpan: myCell.rowSpan,
                                 colSpan: myCell.columnSpan,
                                 paragraphStyles: paragraphStyles,
-                                paragraphContents: paragraphContents // Storing paragraph contents
+                                paragraphContents: paragraphDetails // Storing paragraph details including path
                             };
 
                             // Add the cell object to the array
