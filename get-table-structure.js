@@ -1,6 +1,7 @@
 
 
-var targetScriptLabel = "planner";
+// var targetScriptLabel = "planner";
+var targetScriptLabel = "table";
 
 // Function to create a unique key for each cell
 function createCellKey(tableIndex, rowIndex, cellIndex) {
